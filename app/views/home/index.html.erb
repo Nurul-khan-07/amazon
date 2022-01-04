@@ -1,0 +1,36 @@
+<body>
+  <h1 style="text-align: center; color:red;" >Welcome to our online store</h1>
+  <h1>hello!!!</h1><h2> Nurul Amin Khan Mansuri</h2>
+  <h3 style="text-align: center; color:darkred;">here we are provides to you all your stuff </h3><br>
+
+  <nav class="navbar navbar-expand-sm bg-lightblue navbar-lightblue">
+
+    <div class="container-fluid">
+      <!-- Links -->
+      <ul class="navbar-nav navbar-center">
+        <li class="nav-item">
+          <%= link_to "Users", new_user_path %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Product", new_product_path %>
+          <!-- <a class="nav-link" href="#">product</a> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Connect Us</a>
+        </li>
+        <li><%= render partial: 'layouts/header' %></li>
+      </ul>
+    </div>
+
+  </nav>
+</body>
+<style>
+  a{
+    text-decoration: none;
+  }
+</style>
+
+

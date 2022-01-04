@@ -1,0 +1,43 @@
+<h3>You are now on the list of the users</h3>
+
+<button type="button" class="btn btn-success"> <%= link_to "create user", new_user_path %></button><br>
+
+<div>
+  <% if @user.present? %>
+  <table class="table table-hover">
+    <thead >
+      <td ><strong>Name</strong></td>
+      <td ><strong>Email</strong></td>
+      <td ><strong>Contact Number</strong></td>
+      <td ><strong>Aaddress</strong></td>
+      <td ><strong>Action</strong></td>
+    </thead>
+    <tbody>
+      <% @user.each do |use| %>
+      <tr>
+        <td><%= use.name %></td>
+        <td><%= use.email %></td>
+        <td><%= use.ph_no %></td>
+        <td><%= use.address %></td>
+        <td><button type="button" class="btn btn-warning"> <%= link_to "Edit", edit_user_path(use.id) %></button><button type="button" class="btn btn-danger" ><%= link_to "Delete", user_path(use.id), method: :delete %> </button><button type="button" class="btn btn-info"><%= link_to "Show", user_path(use.id) %></button></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+resord not found
+<% end %>
+
+</div>
+
+<style>
+  table {
+    background-color: lightcoral;
+  }
+  td,button:link{
+    text-decoration: none
+  }
+  h3 {
+    text-align: center;
+  }
+</style>

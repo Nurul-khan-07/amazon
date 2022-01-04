@@ -1,0 +1,32 @@
+
+
+<%= form_for @user do |form| %>
+
+  <p>
+    <strong>Name</strong>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <strong>Email</strong>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <strong>Contact number</strong>
+    <%= form.text_field :ph_no %>
+  </p>
+
+  <p>
+    <strong>Address</strong>
+    <%= form.text_field :address %>
+  </p>
+
+  <p>
+    <%= form.submit 'updating user' %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', users_path %>
+

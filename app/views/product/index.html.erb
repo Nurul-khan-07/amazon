@@ -1,0 +1,44 @@
+<h3>You are now on the list of the products</h3>
+
+<button type="button" class="btn btn-success"> <%= link_to "create product", new_product_path %></button><br>
+
+<div>
+  <% if @product.present? %>
+  <table class="table table-hover">
+    <thead >
+      <td ><strong>product Name</strong></td>
+      <td ><strong>product Category</strong></td>
+      <td ><strong>Product Price</strong></td>
+      <td ><strong>Product Details</strong></td>
+      <td ><strong>Action</strong></td>
+    </thead>
+    <tbody>
+      <% @product.each do |pro| %>
+      <tr>
+        <td><%= pro.pr_name %></td>
+        <td><%= pro.pr_category %></td>
+        <td><%= pro.pr_price %></td>
+        <td><%= pro.pr_details %></td>
+        <td><button type="button" class="btn btn-warning"> <%= link_to "Edit", edit_product_path(pro.id) %></button><button type="button" class="btn btn-danger" ><%= link_to "Delete", product_path(pro.id), method: :delete %> </button><button type="button" class="btn btn-info"><%= link_to "Show", product_path(pro.id) %></button></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+resord not found
+<% end %>
+
+</div>
+<!--
+<style>
+  table {
+    background-color: lightcoral;
+  }
+  td,button:link{
+    text-decoration: none
+  }
+  h3 {
+    text-align: center;
+  }
+</style> -->
+
