@@ -1,0 +1,21 @@
+<h1>Items#new</h1>
+<p>Find me in app/views/items/new.html.erb</p>
+
+<center>
+  <%= form_for @item do |item| %>
+  <div>
+    Item name <%= item.text_field :item_name %>
+  </div>
+  <div>
+    Item category <%= item.text_field :item_cat %>
+  </div>
+  <div>
+    Item price <%= item.text_field :item_price %>
+  </div>
+  <div>
+    Item detail <%= item.text_field :item_details %>
+  </div>
+  <%= item.submit "submit item" %>
+  <%= link_to "back", items_path %>
+  <% end %>
+</center>

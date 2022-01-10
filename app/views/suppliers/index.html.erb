@@ -1,0 +1,35 @@
+<h3 style="text-align: center;">You are now on the list of the suppliers</h3>
+
+<button type="button" class="btn btn-success"> <%= link_to "New supplier", new_supplier_path %></button><br>
+
+<div>
+  <% if @supplier.present? %>
+  <table class="table table-hover">
+    <thead >
+      <td ><strong>Supplier Name</strong></td>
+      <td ><strong>Supplier Email</strong></td>
+      <td ><strong>Supplier Contact Number</strong></td>
+      <td ><strong>Supplier Aaddress</strong></td>
+      <td ><strong>Action</strong></td>
+    </thead>
+    <tbody>
+      <% @supplier.each do |sup| %>
+      <tr>
+        <td><%= sup.sup_name %></td>
+        <td><%= sup.sup_email %></td>
+        <td><%= sup.sup_phone %></td>
+        <td><%= sup.address %></td>
+        <td><button type="button" class="btn btn-warning"> <%= link_to "Edit", edit_supplier_path(sup.id) %></button><button type="button" class="btn btn-danger" ><%= link_to "Delete", suppliers_path(sup.id), method: :delete %> </button><button type="button" class="btn btn-info"><%= link_to "Show", supplier_path(sup.id) %></button></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+resord not found
+<% end %>
+
+</div>
+
+<%= link_to "Go To Home", root_path %>
+
+

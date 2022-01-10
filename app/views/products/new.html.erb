@@ -1,0 +1,38 @@
+<h1>Please enter product details</h1>
+  <%# binding.pry %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <!-- <h2>
+        <%#= pluralize(@product.errors.count, "error") %> prohibited
+        this product from being saved:
+      </h2> -->
+      <ul>
+        <%= @product.errors.full_messages.each do |msg| %>
+          <li style="color: red;"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_with model: @product do |p| %>
+
+      <div>
+        product Name: <%= p.text_field :pr_name %>
+      </div>
+      <div>
+        product Category: <%= p.select :pr_category, [["Watch", "Wa"], ["Perfume", "Pe"], ["Accessories", "Acc"]],{:include_blank => true} %>
+      </div>
+      <div>
+        Product Price: <%= p.text_field :pr_price %>
+      </div>
+      <div>
+        Product Details: <%= p.text_field :pr_details %>
+      </div>
+      <div>
+        <%= p.submit "Submit Product!!" %>
+      </div>
+      <div>
+        <%= link_to "Back", products_path %>
+      </div>
+
+<% end %>

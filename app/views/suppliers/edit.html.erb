@@ -1,0 +1,33 @@
+<center>
+  <%= form_for @supplier do |form| %>
+
+  <p>
+    <strong>Name</strong>
+    <%= form.text_field :sup_name %>
+  </p>
+
+  <p>
+    <strong>Email</strong>
+    <%= form.text_field :sup_email %>
+  </p>
+
+  <p>
+    <strong>Number</strong>
+    <%= form.text_field :sup_phone %>
+  </p>
+
+  <p>
+    <strong>Address</strong>
+    <%= form.text_field :address %>
+  </p>
+
+  <p>
+    <%= form.submit 'updating supplier' %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', suppliers_path %>
+</center>
+
+

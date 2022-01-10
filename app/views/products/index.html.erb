@@ -1,0 +1,52 @@
+<h3>You are now on the list of the products</h3>
+
+<button type="button" class="btn btn-success"> <%= link_to "create product", new_product_path %></button><br>
+
+<div>
+  <%#binding.pry%>
+  <% if @product.present? %>
+  <table class="table table-hover">
+    <thead >
+      <td ><strong>product Name</strong></td>
+      <td ><strong>product Category</strong></td>
+      <td ><strong>Product Price</strong></td>
+      <td ><strong>Product Details</strong></td>
+      <td ><strong>Action</strong></td>
+    </thead>
+    <tbody>
+      <% @product.each do |pro| %>
+      <tr>
+        <td><%= pro.pr_name %></td>
+        <td><%= pro.pr_category %></td>
+        <td><%= pro.pr_price %></td>
+        <td><%= pro.pr_details %></td>
+        <td><button type="button" class="btn btn-warning"> <%= link_to "Edit", edit_product_path(pro.id) %></button><button type="button" class="btn btn-danger" ><%= link_to "Delete", product_path(pro.id), method: :delete %> </button><button type="button" class="btn btn-info"><%= link_to "Show", product_path(pro.id) %></button></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+record not found
+<% end %>
+
+</div>
+
+<%= link_to "Go To Home", root_path %><br><br>
+
+
+<div class="row margin-twenty5-zero margin-b-zero pagination-row">
+  <div class="col-lg-8 col-md-8 col-sm-7 col-xs-6 padding-zero">
+    <ul class="pagination">
+      <li class="disabled"> <%= will_paginate(@product,:previous_label => "&laquo;", :next_label => "&raquo;",:class=>"small-font",:outer_window => 1,:inner_window => 0) %></li>
+    </ul>
+
+  </div>
+
+  <div class="col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info">
+    <span class="pull-right"><%= page_entries_info(@product) %></span>
+  </div>
+
+</div>
+
+
+

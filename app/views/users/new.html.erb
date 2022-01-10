@@ -1,7 +1,6 @@
-
 <h1>Welcome to Amazon Nurul</h1>
-
-<%= form_for @user do |f| %>
+<center>
+  <%= form_for @user do |f| %>
   <div>
     Name: <%= f.text_field :name %>
   </div>
@@ -9,7 +8,7 @@
     Email: <%= f.text_field :email %>
   </div>
   <div>
-    Mobile Number: <%= f.text_field :ph_no %>
+    Number: <%= f.text_field :ph_no %>
   </div>
   <div>
     Address: <%= f.text_field :address %>
@@ -19,3 +18,4 @@
     <%= link_to "Back", users_path %>
   </div>
 <% end %>
+</center>

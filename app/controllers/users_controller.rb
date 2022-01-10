@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
+
+  # rolify :before_add => :before_add_method
+
+  def before_add_method(role)
+    # do something before it gets added
+  end
+
   def index
     @user = User.all
   end
@@ -10,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    # @user = User.create
     User.create(permit_user_params)
     redirect_to users_path
   end
@@ -25,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    # binding.pry
     if @user.update(permit_user_params)
       redirect_to users_path
     else
@@ -34,8 +39,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # binding.pry
-    # @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path
   end

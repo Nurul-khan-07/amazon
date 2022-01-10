@@ -1,0 +1,22 @@
+<h1>Welcome to Nurul's Amazon</h1>
+<center>
+  <%= form_with(Supplier: @supplier, method: :post, local: true) do |s|%>
+  <div>
+    Name: <%= s.text_field :sup_name %>
+  </div>
+  <div>
+    Email: <%= s.text_field :sup_email %>
+  </div>
+  <div>
+    Mobile Number: <%= s.text_field :sup_phone %>
+  </div>
+  <div>
+    Address: <%= s.text_field :address %>
+  </div>
+  <%= s.submit "Click me!!" %>
+  <div>
+    <%= link_to "Back", suppliers_path %>
+  </div>
+<% end %>
+</center>
+
